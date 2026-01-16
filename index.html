@@ -6,6 +6,9 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             const socket = io(); // This line initiates the connection!
+            socket.on("welcome-message", (data) => {
+                console.log("Message from server: ", data.text);
+            });
         </script>
     </body>
 </html>
