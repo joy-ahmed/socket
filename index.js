@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
 
+app.post("/send", (req, res) => {
+  res.send("Send successfully!");
+});
+
 io.on("connection", (socket) => {
   console.log("A user connected! 🔌");
   socket.emit("welcome-message", { text: "Welcome to the server!" });
