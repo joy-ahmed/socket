@@ -9,12 +9,12 @@ const server = createServer(app);
 const io = new Server(server);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
+//initiate base route
 app.get("/", (req, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
 
-
+// triggering socket server
 io.on("connection", (socket) => {
   console.log("A user connected! 🔌");
   socket.emit("welcome-message", { text: "Welcome to the server!" });
