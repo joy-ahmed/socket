@@ -17,9 +17,16 @@ app.get("/", (req, res) => {
 // triggering socket server
 io.on("connection", (socket) => {
   console.log("A user connected! 🔌");
-  socket.emit("welcome-message", { text: "Welcome to the server!" });
+  // 1. Listen for the 'chat-message' event from this specific client
+  socket.on("chat-message", (msg) => {
+    console.log("Message received:", msg);
+
+    // 2. Send it back to EVERYONE connected (Broadcasting)
+    io.emit("broadcast-msg", `User said: ${msg}`);
+  });
 });
 
+// server port mapping
 server.listen(3000, () => {
   console.log("Server running");
 });
