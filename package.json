@@ -1,6 +1,6 @@
 {
   "name": "first",
-  "module": "index.js",
+  "module": "server.js",
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
@@ -9,7 +9,6 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "express": "^5.2.1",
-    "socket.io": "^4.8.3"
+    "ws": "^8.19.0"
   }
 }
