@@ -21,3 +21,5 @@ wss.on("connection", (socket, request) => {
     console.log("client disconnected.");
   });
 });
+
+console.log("Client is running at 8080");
